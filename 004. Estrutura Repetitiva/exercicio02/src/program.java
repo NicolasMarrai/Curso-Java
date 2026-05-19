@@ -8,7 +8,7 @@ public class program {
 		int x = sc.nextInt();
 		int y = sc.nextInt();
 
-		while (x != 0 || y != 0) {
+		while (x != 0 && y != 0) {
 
 			if (x > 0 && y > 0) {
 				System.out.println("primeiro");
