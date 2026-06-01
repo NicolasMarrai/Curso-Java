@@ -55,7 +55,4 @@ public class OrderItem {
 				", Subtotal: $" 
 				+ String.format("%.2f", subTotal());
 	}
-	
-	
-
 }
