@@ -17,7 +17,7 @@ public class Program {
 		System.out.print("Origin: ");
 		sc.nextLine();
 		String origin = sc.nextLine();
-		System.out.print("Destination: : ");
+		System.out.print("Destination: ");
 		String destination = sc.nextLine();
 		System.out.print("Available seats: ");
 		int availableSeats = sc.nextInt();
