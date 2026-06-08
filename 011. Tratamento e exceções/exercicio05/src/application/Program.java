@@ -41,6 +41,8 @@ public class Program {
 			System.out.println();
 			System.out.println("Stock updated!");
 			System.out.println(item);
+		} catch (LowStockException e) {
+			System.out.println(e.getMessage());
 		} catch (StockException e) {
 			System.out.println(e.getMessage());
 		}
