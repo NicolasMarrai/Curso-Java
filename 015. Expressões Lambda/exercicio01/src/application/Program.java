@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import entities.Product;
 
@@ -33,28 +32,21 @@ public class Program {
 				list.add(new Product(fields[0], Double.parseDouble(fields[1])));
 				line = br.readLine();
 			}
-			
-			double avg = list.stream()
-					.map(p -> p.getPrice())
-					.reduce(0.0, (x,y) -> x + y) / list.size();
-			
-			System.out.println("Average price: " + String.format("%.2f", avg));
-			
-			Comparator<String> comp = (s1, s2) -> s1.toUpperCase().compareTo(s2.toUpperCase());
-			
-			List<String> names = list.stream()
-					.filter(p -> p.getPrice() < avg)
-					.map(p -> p.getName())
-					.sorted(comp.reversed())
-					.collect(Collectors.toList());
-			
-			names.forEach(System.out::println);
-			
-			
-		} catch (IOException e) {
-			System.out.println("Erros: " + e.getMessage());
-		}
 
+			double avg = list.stream().map(p -> p.getPrice()).reduce(0.0, (x, y) -> x + y) / list.size();
+
+			System.out.println("Average price: " + String.format("%.2f", avg));
+
+			Comparator<String> comp = (s1, s2) -> s1.toUpperCase().compareTo(s2.toUpperCase());
+
+			List<String> names = list.stream().filter(p -> p.getPrice() < avg).map(p -> p.getName())
+					.sorted(comp.reversed()).collect(Collectors.toList());
+
+			names.forEach(System.out::println);
+
+		} catch (IOException e) {
+			System.out.println("Error: " + e.getMessage());
+		}
 		sc.close();
 	}
 }
